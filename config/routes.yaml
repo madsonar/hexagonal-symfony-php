@@ -1,0 +1,15 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+controllers_marketing:
+    resource: '../src/BoundedContexts/Marketing/Application/Adapters/PrimaryIn/Controller/'
+    type: annotation
+    prefix: /marketing
+
+controllers_sales:
+    resource: '../src/BoundedContexts/Sales/Application/Adapters/PrimaryIn/Controller/'
+    type: annotation
+    prefix: /sales
