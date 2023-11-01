@@ -18,8 +18,8 @@ doctrine:
             App:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                dir: '%kernel.project_dir%/src/BoundedContexts/Marketing/Infrastructure/Symfony/Database/Doctrine/Entity'
+                prefix: 'App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Entity'
                 alias: App
 
 when@test:
