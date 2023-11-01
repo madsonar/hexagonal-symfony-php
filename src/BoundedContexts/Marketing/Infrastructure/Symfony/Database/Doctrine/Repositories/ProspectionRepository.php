@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Repositories;
 
-use App\Entity\Prospection;
+use App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Entity\Prospection;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

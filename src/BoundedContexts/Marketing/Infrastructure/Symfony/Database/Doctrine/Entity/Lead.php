@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Entity;
 
-use App\Repository\LeadRepository;
+use App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Repositories\LeadRepository;
 use Doctrine\ORM\Mapping as ORM;
+
+use App\BoundedContexts\Marketing\CoreDomain\Entities\Lead as DomainLead;
 
 #[ORM\Entity(repositoryClass: LeadRepository::class)]
 class Lead
@@ -46,5 +48,19 @@ class Lead
         $this->email = $email;
 
         return $this;
+    }
+
+    public static function fromDomain(DomainLead $domainLead): self
+    {
+        $doctrineLead = new self();
+        if ($domainLead->getId()) {
+            $reflectionProperty = new \ReflectionProperty(self::class, 'id');
+            $reflectionProperty->setAccessible(true);
+            $reflectionProperty->setValue($doctrineLead, $domainLead->getId());
+        }
+        $doctrineLead->setName($domainLead->getName());
+        $doctrineLead->setEmail($domainLead->getEmail());
+
+        return $doctrineLead;
     }
 }

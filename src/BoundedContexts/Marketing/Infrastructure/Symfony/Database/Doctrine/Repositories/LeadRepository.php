@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Repositories;
 
-use App\Entity\Lead;
+use App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Entity\Lead;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +19,13 @@ class LeadRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Lead::class);
+    }
+
+    public function save(Lead $lead): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($lead);
+        $entityManager->flush();
     }
 
 //    /**

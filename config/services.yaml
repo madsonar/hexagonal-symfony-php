@@ -22,3 +22,14 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Configuração explícita para LeadRepositoryDoctrineAdapter
+    App\BoundedContexts\Marketing\Infrastructure\Symfony\Adapters\SecondaryOut\Repositories\LeadRepositoryDoctrineAdapter:
+        arguments:
+            $repository: '@App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Repositories\LeadRepository'
+
+    # Configuração explícita para LeadSaveUseCase
+    App\BoundedContexts\Marketing\Application\UseCases\LeadSaveUseCase:
+        arguments:
+            $leadRepositoryInterface: '@App\BoundedContexts\Marketing\Infrastructure\Symfony\Adapters\SecondaryOut\Repositories\LeadRepositoryDoctrineAdapter'
+

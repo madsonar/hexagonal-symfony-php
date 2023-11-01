@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Entity;
 
-use App\Repository\ProspectionRepository;
+use App\BoundedContexts\Marketing\Infrastructure\Symfony\Database\Doctrine\Repositories\ProspectionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProspectionRepository::class)]
